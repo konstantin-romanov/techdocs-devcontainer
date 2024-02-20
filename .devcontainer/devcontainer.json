@@ -1,0 +1,46 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "Backstage - Technical docs",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "npx --yes @techdocs/cli -V && pip install -r requirements.txt",
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "DavidAnson.vscode-markdownlint",
+                "yzhang.markdown-all-in-one",
+                "redhat.vscode-yaml",
+                "bierner.markdown-emoji",
+                "bierner.markdown-mermaid"
+            ],
+            "settings": {
+                "markdown.extension.list.indentationSize": "inherit",
+                "markdown.extension.completion.enabled": true,
+                "markdown.copyFiles.destination": {
+                    "**/*.png": "${documentDirName}/images/"
+                },
+                "editor.tabSize": 4,
+                "markdownlint.config": {
+                    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.33.0/schema/markdownlint-config-schema.json",
+                    "no-inline-html": {
+                        "allowed_elements": [
+                            "video"
+                        ]
+                    },
+                },
+            }
+        }
+    },
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+}
