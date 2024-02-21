@@ -27,7 +27,7 @@
                 "markdown.extension.list.indentationSize": "inherit",
                 "markdown.extension.completion.enabled": true,
                 "markdown.copyFiles.destination": {
-                    "**/*.png": "${documentDirName}/images/"
+                    "**/*": "images/${documentBaseName/(..).*/$1/}/",
                 },
                 "editor.tabSize": 4,
                 "markdownlint.config": {
