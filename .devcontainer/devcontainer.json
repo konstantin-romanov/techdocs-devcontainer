@@ -7,21 +7,24 @@
     "features": {
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/python:1": {},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers-contrib/features/markdownlint-cli:1": {}
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "npx --yes @techdocs/cli -V && pip install -r requirements.txt",
+    "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    "postCreateCommand": ".devcontainer/setup.sh",
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
             "extensions": [
-                "DavidAnson.vscode-markdownlint",
                 "yzhang.markdown-all-in-one",
                 "redhat.vscode-yaml",
                 "bierner.markdown-emoji",
-                "bierner.markdown-mermaid"
+                "bierner.markdown-mermaid",
+                "fnando.linter",
+                "streetsidesoftware.code-spell-checker",
             ],
             "settings": {
                 "markdown.extension.list.indentationSize": "inherit",
